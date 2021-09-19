@@ -15,7 +15,7 @@
     <div class="container">
       <h1 class="text-center my-3 text-white text-shadow">Shopping Cart</h1>
 
-      <div class="row my-5">
+      <div class="row my-5" id="item-table">
         <!-- first column -->
         <div class="col-12 my-3 fw-bold">
           <!-- first subrow -->
@@ -36,7 +36,7 @@
             <div class="col">
               <div>
                 <label>
-                  <span class="text-white text-shadow">QTY</span><input type="number" />
+                  <span class="text-white text-shadow">QTY</span><input type="number" class="item-amount" />
                 </label>
               </div>
             </div>
@@ -79,7 +79,7 @@
             <div class="col">
               <div>
                 <label>
-                  <span class="text-white text-shadow">QTY</span><input type="number" />
+                  <span class="text-white text-shadow">QTY</span><input type="number" class="item-amount" />
                 </label>
               </div>
             </div>
@@ -108,19 +108,19 @@
 
         <!-- first column -->
         <div class="col"> 
-          <input type="text" />
+          <input type="text" id="item-title" />
         </div>
         <!-- end of first column -->
 
         <!-- second column -->
         <div class="col">
-          <input type="number" />
+          <input type="number" id="item-price" />
         </div>
         <!-- end of second column -->
 
         <!-- third column -->
         <div class="col">
-          <button type="button" class="btn btn-secondary">Create</button>
+          <button type="button" class="btn btn-secondary" id="create-item" >Create</button>
         </div>
         <!-- end of third column -->
 
