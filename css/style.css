@@ -1,1 +1,14 @@
 /* Author: Eduardo Carranza */
+
+/* general style */
+
+  body {
+    height: 100vh;
+    background-image: url('../images/shopping-cart.jpg');
+    background-position: center;
+    background-size: cover;
+  }
+
+  .text-shadow {text-shadow: 1px 1px 4px black;}
+
+/* end of general style */
