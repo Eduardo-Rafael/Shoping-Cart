@@ -1,7 +1,9 @@
 //Author: Eduardo Carranza
 
 
-function addItem(){
+function addItem(event){
+  event.preventDefault();
+
   var itemTitle = $('#item-title').val();
   var itemPrice = $('#item-price').val();
 
@@ -15,7 +17,7 @@ function addItem(){
           "</div>" + 
 
           "<div class='col'>" +
-          "<div class='text-white text-shadow'>" + "$" + itemPrice + "</div>" +
+          "<div class='text-white text-shadow'>" + "$" + parseFloat(itemPrice).toFixed(2) + "</div>" +
           "</div>" +
 
           "<div class='col'>" +
@@ -40,6 +42,7 @@ function addItem(){
   itemBoard.append(itemObject);
   $('#item-title').val('');
   $('#item-price').val('');
+  $('#button-calculate-price').removeAttr('disabled');
 
 }
 
@@ -49,12 +52,15 @@ function updateSubtotal(){
   var currentPrice = parseFloat(parent.prev().children().first().text().substring(1));
   var itemAount = Number($(this).val());
   var subtotal = parseFloat(currentPrice * itemAount);
-  itemPriceObject.children().first().text('$' + subtotal);
+  itemPriceObject.children().first().text('$' + subtotal.toFixed(2));
 }
 
 function removeButton(){
   var parent = $(this).parents('.col-12');
   parent.remove();
+  totalPrice();
+  if($('#item-table').children().length == 0)
+    $('#button-calculate-price').attr('disabled' , 'true');
 }
 
 function totalPrice(){
@@ -69,15 +75,15 @@ function totalPrice(){
         totalPrice += parseFloat(text.substring(1));
     });
   }
-  $('#total-price h4').text('$' + totalPrice);
+  $('#total-price h4').text('$' + totalPrice.toFixed(2));
 }
 
 $(document).ready(function(){
  
-  $('#create-item').click(addItem);
+  $('#create-item').submit(addItem);
   $(document).on('change', 'input.item-amount', updateSubtotal);
   $(document).on('click', 'button.removeButton', removeButton);
-  $('form button').click(totalPrice);
+  $('#button-calculate-price').click(totalPrice);
   
 
 });

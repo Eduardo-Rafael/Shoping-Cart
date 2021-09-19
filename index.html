@@ -104,29 +104,29 @@
 
       </div>
 
-      <form class="row my-5">
+      <form class="row my-5" id="create-item" >
 
         <!-- first column -->
         <div class="col"> 
-          <input type="text" id="item-title" />
+          <input type="text" id="item-title" required />
         </div>
         <!-- end of first column -->
 
         <!-- second column -->
         <div class="col">
-          <input type="number" id="item-price" />
+          <input type="text" id="item-price" required />
         </div>
         <!-- end of second column -->
 
         <!-- third column -->
         <div class="col">
-          <button type="button" class="btn btn-secondary" id="create-item" >Create</button>
+          <button type="submit" class="btn btn-secondary" >Create</button>
         </div>
         <!-- end of third column -->
 
         <!-- fourth column -->
         <div class="col">
-          <button type="button" class="btn btn-success">Calculate Prices</button>
+          <button type="button" class="btn btn-success" id="button-calculate-price" >Calculate Prices</button>
         </div>
         <!-- end of fourth column -->
 
