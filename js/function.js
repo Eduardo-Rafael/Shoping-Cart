@@ -27,7 +27,7 @@ function addItem(){
           "</div>" +
 
           "<div class='col'>" +
-          "<button type='button' class='btn btn-secondary'>" + "Remove" + "</button>" +
+          "<button type='button' class='btn btn-secondary removeButton'>" + "Remove" + "</button>" +
           "</div>" +
 
           "<div class='col'>" +
@@ -52,9 +52,16 @@ function updateSubtotal(){
   itemPriceObject.children().first().text('$' + subtotal);
 }
 
+function removeButton(){
+  var parent = $(this).parents('.col-12');
+  parent.remove();
+}
+
 $(document).ready(function(){
  
   $('#create-item').click(addItem);
   $(document).on('change', 'input.item-amount', updateSubtotal);
+  $(document).on('click', 'button.removeButton', removeButton);
+  
 
 });
