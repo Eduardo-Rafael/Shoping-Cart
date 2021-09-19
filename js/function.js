@@ -55,6 +55,6 @@ function updateSubtotal(){
 $(document).ready(function(){
  
   $('#create-item').click(addItem);
-  $("input.item-amount").change(updateSubtotal);
+  $(document).on('change', 'input.item-amount', updateSubtotal);
 
 });
