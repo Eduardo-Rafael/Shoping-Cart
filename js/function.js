@@ -57,11 +57,27 @@ function removeButton(){
   parent.remove();
 }
 
+function totalPrice(){
+  var totalPrice = 0;
+  var itemBoard = $('#item-table');
+  var items = itemBoard.children();
+  if(items.length > 0)
+  {
+    items.each(function(){
+      var text = $(this).children().children().last().children().text();
+      if(text != '$--.--')
+        totalPrice += parseFloat(text.substring(1));
+    });
+  }
+  $('#total-price h4').text('$' + totalPrice);
+}
+
 $(document).ready(function(){
  
   $('#create-item').click(addItem);
   $(document).on('change', 'input.item-amount', updateSubtotal);
   $(document).on('click', 'button.removeButton', removeButton);
+  $('form button').click(totalPrice);
   
 
 });
